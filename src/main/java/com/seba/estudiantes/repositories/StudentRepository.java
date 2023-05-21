@@ -14,4 +14,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
     @Query(value="SELECT s.* FROM students s LEFT OUTER JOIN contacts c ON s.id = c.student_id WHERE c.id IS NULL;", nativeQuery = true)
     List<Student> findByNoContact();
 
+    @Query(value="SELECT s.* FROM students s LEFT OUTER JOIN dormitory d ON s.dormitory_id = d.id WHERE d.id IS NULL;", nativeQuery = true)
+    List<Student> findByNoDormitory();
+    //Trae todos los usuarios que no tengan asignado un dormitorio
 }

@@ -8,6 +8,7 @@
     <div class="d-flex justify-content-around mb-3">
         <a href="/students/new" class="mt-2">New Student</a>
         <a href="/contact/new" class="mt-2">New Contact</a>
+        <a href="/dorms/new" class="mt-2">New Dormitory</a>
     </div>
     <h1>All Students</h1>
     <div>
@@ -34,5 +35,22 @@
             </tbody>
         </table>
     </div>
+    <h2 class="fs-1">All Dormitories</h2>
+        <div>
+            <table class="table table-striped border border-1">
+                <thead>
+                    <tr class="table-secondary">
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${allDormitories}" var="dorm">
+                    <tr>
+                        <td><a href="/dorms/${dorm.id}">${dorm.name}</a></td>
+                    </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
 </div>
 

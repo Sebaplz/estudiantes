@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -29,6 +30,10 @@ public class Student {
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Contact contact;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dormitory_id")
+    private Dormitory dormitory;
 
     public Student() {
     }
@@ -77,6 +82,14 @@ public class Student {
 
     public void setContact(Contact contact) {
         this.contact = contact;
+    }
+
+    public Dormitory getDormitory() {
+        return dormitory;
+    }
+
+    public void setDormitory(Dormitory dormitory) {
+        this.dormitory = dormitory;
     }
 
     @PrePersist

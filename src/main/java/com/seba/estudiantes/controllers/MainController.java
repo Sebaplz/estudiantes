@@ -31,6 +31,7 @@ public class MainController {
     public String index(Model model) {
         List<Student> allStudents = apiService.allStudents();
         model.addAttribute("allStudents", allStudents);
+        model.addAttribute("allDormitories", apiService.allDormitories());
         return "index.jsp";
     }
 
